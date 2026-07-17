@@ -1,7 +1,8 @@
-export const prerender = false; // Tells Astro this must run on the server, not at build time
+export const prerender = false; // Tells Astro this must run on the server
 
 export async function POST({ request }) {
-  const apiKey = import.meta.env.GEMINI_API_KEY;
+  // Use process.env so the compiler does NOT hardcode the key into the build output
+  const apiKey = process.env.GEMINI_API_KEY;
   
   if (!apiKey) {
     return new Response(JSON.stringify({ error: "API key missing" }), { status: 500 });
