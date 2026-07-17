@@ -19,7 +19,6 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
     <meta name="description" content="صفر تا صد لجستیک، ترخیص صادراتی و تامین کالا برای تجارت برون‌مرزی." />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- High-end Persian Font: Vazirmatn -->
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
     <style>
       body { font-family: 'Vazirmatn', sans-serif; }
@@ -27,44 +26,8 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
   </head>
   <body class="bg-slate-50 text-slate-900 selection:bg-emerald-500 selection:text-white antialiased relative">
 
-  {/* AI CHATBOT WINDOW (Hidden by default) */}
-    <div id="chat-window" class="fixed bottom-24 end-6 z-50 w-[90vw] sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 hidden flex-col overflow-hidden transition-all duration-300 transform origin-bottom-right">
-      <!-- Header -->
-      <div class="bg-slate-900 text-white p-4 flex justify-between items-center">
-        <div class="flex items-center gap-3">
-          <span class="relative flex h-2.5 w-2.5">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-          </span>
-          <div>
-            <h3 class="font-bold text-sm tracking-wide">Operations AI</h3>
-            <p class="text-[10px] text-slate-400">Saeidian Trading Desk</p>
-          </div>
-        </div>
-        <button id="close-chat" class="text-slate-400 hover:text-white transition" aria-label="Close Chat">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-        </button>
-      </div>
-      
-      <!-- Chat Messages Area -->
-      <div id="chat-messages" class="h-80 p-4 overflow-y-auto bg-slate-50 flex flex-col gap-4 text-sm font-medium scroll-smooth">
-        <!-- Default Greeting -->
-        <div class="bg-white border border-slate-200 p-3.5 rounded-2xl rounded-tl-sm self-start text-slate-700 shadow-sm max-w-[85%] leading-relaxed">
-          Hello. I am the automated operations assistant. How can I help you with our cross-border logistics or commodity sourcing today?
-        </div>
-      </div>
-      
-      <!-- Input Area -->
-      <div class="p-3 bg-white border-t border-slate-100 flex gap-2 items-center">
-        <input type="text" id="chat-input" class="w-full bg-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500/50 text-sm font-medium transition-all" placeholder="Ask about logistics..." autocomplete="off" />
-        <button id="send-chat" class="bg-emerald-600 text-white p-3 rounded-xl hover:bg-emerald-500 transition-all shadow-md shadow-emerald-900/10 shrink-0">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-        </button>
-      </div>
-    </div>
-
     {/* AI CHATBOT WINDOW (Hidden by default) */}
-    <div id="chat-window" class="fixed bottom-28 end-6 z-50 w-[90vw] sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 hidden flex-col overflow-hidden transition-all duration-300 transform origin-bottom-right font-sans" dir="ltr">
+    <div id="chat-window" class="fixed bottom-28 end-6 z-50 w-[90vw] sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 hidden flex-col overflow-hidden transition-all duration-300 transform origin-bottom-right">
       <!-- Header -->
       <div class="bg-slate-900 text-white p-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
@@ -73,8 +36,8 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
             <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
           </span>
           <div>
-            <h3 class="font-bold text-sm tracking-wide">Operations AI</h3>
-            <p class="text-[10px] text-slate-400">Saeidian Trading Desk</p>
+            <h3 class="font-bold text-sm tracking-wide">هوش مصنوعی عملیات</h3>
+            <p class="text-[10px] text-slate-400">پشتیبانی بازرگانی سعیدیان</p>
           </div>
         </div>
         <button id="close-chat" class="text-slate-400 hover:text-white transition" aria-label="Close Chat">
@@ -85,32 +48,269 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
       <!-- Chat Messages Area -->
       <div id="chat-messages" class="h-80 p-4 overflow-y-auto bg-slate-50 flex flex-col gap-4 text-sm font-medium scroll-smooth">
         <!-- Default Greeting -->
-        <div class="bg-white border border-slate-200 p-3.5 rounded-2xl rounded-tl-sm self-start text-slate-700 shadow-sm max-w-[85%] leading-relaxed">
-          Hello. I am the automated operations assistant. How can I help you with our cross-border logistics or commodity sourcing today?
+        <div class="bg-white border border-slate-200 p-3.5 rounded-2xl rounded-tr-sm self-start text-slate-700 shadow-sm max-w-[85%] leading-relaxed">
+          سلام. من دستیار خودکار عملیات هستم. چگونه می‌توانم در زمینه لجستیک مرزی یا تامین کالا به شما کمک کنم؟
         </div>
       </div>
       
       <!-- Input Area -->
       <div class="p-3 bg-white border-t border-slate-100 flex gap-2 items-center">
-        <input type="text" id="chat-input" class="w-full bg-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500/50 text-sm font-medium transition-all" placeholder="Ask about logistics..." autocomplete="off" />
-        <button id="send-chat" class="bg-emerald-600 text-white p-3 rounded-xl hover:bg-emerald-500 transition-all shadow-md shadow-emerald-900/10 shrink-0">
+        <button id="send-chat" class="bg-emerald-600 text-white p-3 rounded-xl hover:bg-emerald-500 transition-all shadow-md shadow-emerald-900/10 shrink-0 transform rotate-180">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
         </button>
+        <input type="text" id="chat-input" class="w-full bg-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500/50 text-sm font-medium transition-all" placeholder="سوال خود را بپرسید..." autocomplete="off" />
       </div>
     </div>
 
     {/* FLOATING ACTION BUTTONS */}
     <div class="fixed bottom-6 end-6 z-50 flex flex-col gap-3">
       <!-- AI Chat Toggle Button -->
-      <button id="ai-chat-toggle" class="bg-slate-900 text-white p-4 rounded-full shadow-xl shadow-slate-900/20 hover:scale-110 hover:bg-slate-800 transition-all duration-300 group">
+      <button id="ai-chat-toggle" class="bg-slate-900 text-white p-4 rounded-full shadow-xl shadow-slate-900/20 hover:scale-110 hover:bg-slate-800 transition-all duration-300 group" aria-label="پشتیبانی آنلاین">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+        <span class="absolute end-full me-4 top-1/2 -translate-y-1/2 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          پشتیبانی آنلاین
+        </span>
       </button>
 
       <!-- WhatsApp Direct -->
-      <a href={whatsappLink} target="_blank" rel="noopener" class="bg-[#25D366] text-white p-4 rounded-full shadow-xl shadow-green-900/20 hover:scale-110 hover:bg-green-500 transition-all duration-300 group">
+      <a href={whatsappLink} target="_blank" rel="noopener" class="bg-[#25D366] text-white p-4 rounded-full shadow-xl shadow-green-900/20 hover:scale-110 hover:bg-green-500 transition-all duration-300 group" aria-label="ارتباط در واتس‌اپ">
         <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span class="absolute end-full me-4 top-1/2 -translate-y-1/2 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+          ارسال پیام در واتس‌اپ
+        </span>
       </a>
     </div>
+
+    {/* GLOBAL STICKY HEADER */}
+    <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80 navbar">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+        
+        <a href="/" class="text-lg sm:text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-2">
+          <span class="w-2 sm:w-3 h-5 sm:h-6 bg-gradient-to-b from-emerald-400 to-emerald-600 rounded-xs inline-block"></span>
+          بازرگانی <span class="text-emerald-600 font-medium">سعیدیان</span>
+        </a>
+        
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+          <a href="#about" class="hover:text-emerald-600 transition">خدمات ما</a>
+          <a href="#commodities" class="hover:text-emerald-600 transition">محصولات</a>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-4">
+          <a href={`tel:${callNumber}`} class="hidden lg:flex items-center gap-2 text-slate-900 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 px-4 py-2 rounded-lg text-sm font-bold border border-slate-200 transition-colors dir-ltr font-sans">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <span class="font-sans" dir="ltr">{callNumber}</span>
+          </a>
+
+          <!-- LANGUAGE SWITCHER: Outside the hamburger, completely visible -->
+          <div class="flex items-center bg-slate-100 p-1 rounded-lg border border-slate-200 font-sans" dir="ltr">
+            <a href="/en/" class={`px-2 sm:px-3 py-1.5 text-[10px] sm:text-xs font-bold rounded-md transition ${currentPath.startsWith('/en') ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>EN</a>
+            <a href="/" class={`px-2 sm:px-3 py-1.5 text-[10px] sm:text-xs font-bold rounded-md transition ${currentPath === '/' || currentPath === '' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>فا</a>
+            <a href="/ur/" class={`px-2 sm:px-3 py-1.5 text-[10px] sm:text-xs font-bold rounded-md transition ${currentPath.startsWith('/ur') ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>اردو</a>
+          </div>
+
+          <button id="mobile-menu-btn" class="md:hidden p-1.5 text-slate-900 hover:text-emerald-600 transition" aria-label="Toggle Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Dropdown -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-4 shadow-lg absolute w-full">
+        <a href="#about" class="block font-medium text-slate-600 hover:text-emerald-600 py-2">خدمات ما</a>
+        <a href="#commodities" class="block font-medium text-slate-600 hover:text-emerald-600 py-2">محصولات</a>
+        <a href={`tel:${callNumber}`} class="block font-bold text-emerald-600 py-2 flex items-center gap-2 font-sans" dir="ltr">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          تماس فوری با دفتر
+        </a>
+      </div>
+    </nav>
+
+    {/* HERO SECTION */}
+    <section class="relative min-h-[85vh] flex items-center bg-slate-950 overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-emerald-600/20 blur-[120px] rounded-full pointer-events-none"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(#ffffff15_1px,transparent_1px)] [background-size:24px_24px] opacity-20"></div>
+      
+      <div class="max-w-7xl mx-auto px-6 py-24 relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-8 text-center lg:text-start relative">
+          <div class="inline-flex items-center gap-3 bg-slate-900/50 backdrop-blur-sm border border-emerald-500/30 text-slate-300 px-4 py-2 rounded-full text-xs font-bold shadow-xl">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            کریدور فعال: واردات و صادرات جهانی
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.2]">
+            لجستیک و تجارت <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">صفر تا صد</span>
+          </h1>
+          
+          <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto lg:mx-0 font-light leading-loose">
+            از تامین کالا تا مدیریت ناوگان حمل و نقل و ترخیص کالا از گمرک مرزی. ما تمام امور لجستیک فیزیکی را مدیریت می‌کنیم تا شما تنها روی تجارت تمرکز کنید. برای اطلاع از ظرفیت‌ها و نرخ روز با ما در ارتباط باشید.
+          </p>
+          
+          <div class="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
+            <a href={whatsappLink} target="_blank" rel="noopener" class="bg-[#25D366] text-slate-900 px-8 py-4 rounded-xl font-extrabold shadow-lg shadow-green-900/20 hover:bg-[#20bd5a] transition-all flex items-center justify-center gap-3 text-lg">
+              پشتیبانی واتس‌اپ
+            </a>
+            <a href={`tel:${callNumber}`} class="bg-white/5 hover:bg-white/10 border border-slate-700 text-white px-8 py-4 rounded-xl font-extrabold backdrop-blur-sm transition-all flex items-center justify-center gap-3 text-lg font-sans">
+              تماس مستقیم
+            </a>
+          </div>
+        </div>
+        
+        <div class="lg:col-span-5 hidden lg:block relative">
+          <div class="absolute inset-0 bg-gradient-to-tr from-emerald-500/30 to-transparent rounded-2xl filter blur-2xl"></div>
+          <div class="relative rounded-2xl border border-slate-700/50 bg-slate-900/50 backdrop-blur-xl p-2 shadow-2xl overflow-hidden">
+            <img 
+              src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80" 
+              alt="ترمینال لجستیک" 
+              class="rounded-xl object-cover w-full h-[480px] opacity-90"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* THE OPERATIONAL PIPELINE */}
+    <section id="about" class="py-24 bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <span class="text-sm font-bold text-emerald-600">خدمات و توانمندی‌های ما</span>
+          <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">تامین کالا و مدیریت لجستیک</h2>
+          <p class="text-slate-600 font-light leading-loose">چه نیاز به تامین کالا داشته باشید و چه بخواهید محموله خود را از مرزها عبور دهید، ما راهکار نهایی شما هستیم.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10 relative">
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-10 relative z-10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+             <div class="w-14 h-14 bg-emerald-100/50 text-emerald-600 rounded-xl flex items-center justify-center border border-emerald-200 shadow-sm mb-6">
+               <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4m-4-10l-4-4m0 0l-4 4m4-4v12"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3">حمل و نقل و ترخیص صادراتی</h3>
+            <p class="text-slate-600 leading-loose">کالا از شما، جابجایی با ما. ما کامیون‌ها را از لحظه بارگیری در مبدا تحت نظر می‌گیریم و ضمن انجام امور صادراتی، ترخیص کامل گمرکی را در مرز تضمین می‌کنیم.</p>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-100 rounded-2xl p-10 relative z-10 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="w-14 h-14 bg-emerald-100/50 text-emerald-600 rounded-xl flex items-center justify-center border border-emerald-200 shadow-sm mb-6">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 mb-3">تامین کالا (Fulfillment)</h3>
+            <p class="text-slate-600 leading-loose">اگر خریدار هستید اما تامین‌کننده ندارید، تنها حجم درخواستی را به ما اعلام کنید. ما از طریق شبکه ارتباطی خود، کالای شما را مستقیماً از تولیدکنندگان و کشاورزان معتبر تامین می‌کنیم.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* COMMODITIES SECTION */}
+    <section id="commodities" class="py-24 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">کالاهای اصلی تحت پوشش</h2>
+          <p class="text-slate-600 font-light leading-loose">تمرکز ما بر روی محصولات کشاورزی منطقه‌ای است، اما شبکه لجستیک ما قابلیت انتقال تمامی کالاهای مجاز و غیرممنوعه را داراست.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-2xl border border-slate-200/60 overflow-hidden shadow-xs hover:shadow-xl transition-all group">
+            <div class="h-48 overflow-hidden bg-slate-100 relative">
+              <img src="https://images.unsplash.com/photo-1594911771146-5c5f87b32817?auto=format&fit=crop&w=600&q=80" alt="خرما و کشاورزی" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900">خرما و محصولات کشاورزی</h3>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200/60 overflow-hidden shadow-xs hover:shadow-xl transition-all group">
+            <div class="h-48 overflow-hidden bg-slate-100 relative">
+              <img src="https://images.unsplash.com/photo-1515555233983-7d81d7523640?auto=format&fit=crop&w=600&q=80" alt="گیاهان دارویی" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900">گیاهان دارویی</h3>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-2xl border border-slate-200/60 overflow-hidden shadow-xs hover:shadow-xl transition-all group">
+             <div class="h-48 overflow-hidden bg-slate-100 relative">
+              <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80" alt="سایر کالاها" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-slate-900">سایر کالاهای مجاز</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {/* TRADING DESK CALL TO ACTION */}
+    <section class="py-24 bg-slate-900 text-center border-t border-slate-800">
+      <div class="max-w-4xl mx-auto px-6 space-y-8">
+        <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-5xl">تماس با واحد عملیات</h2>
+        <p class="text-lg text-slate-400 max-w-2xl mx-auto font-light leading-loose">برای اطلاع از ظرفیت‌های دقیق، درخواست تامین کالا و یا استعلام نرخ روز، مستقیماً با ما در ارتباط باشید.</p>
+        
+        <div class="pt-8 flex flex-col sm:flex-row justify-center gap-6">
+          <a href={whatsappLink} target="_blank" rel="noopener" class="bg-[#25D366] hover:bg-[#20bd5a] text-white px-10 py-5 rounded-2xl font-bold transition-all shadow-xl shadow-green-900/20 flex items-center justify-center gap-3 text-lg">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            ارسال پیام در واتس‌اپ
+          </a>
+          <a href={`tel:${callNumber}`} class="bg-white/10 hover:bg-white/20 border border-slate-700 text-white px-10 py-5 rounded-2xl font-bold transition-all flex items-center justify-center gap-3 text-lg font-sans">
+            <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            تماس مستقیم تلفنی
+          </a>
+        </div>
+      </div>
+    </section>
+
+    {/* FIXED ALIGNMENT FOOTER */}
+    <footer class="bg-slate-950 text-slate-400 py-16 border-t border-slate-900 text-sm">
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-right">
+        
+        <!-- Column 1: Brand Info -->
+        <div class="space-y-4 flex flex-col items-start md:items-start">
+          <a href="/" class="text-xl font-extrabold tracking-tight text-white flex items-center gap-2 mb-2">
+            <span class="w-2 h-5 bg-gradient-to-b from-emerald-400 to-emerald-600 rounded-xs inline-block"></span>
+            بازرگانی <span class="text-emerald-500 font-medium">سعیدیان</span>
+          </a>
+          <p class="font-light leading-loose text-slate-500 w-full">اتصال زنجیره تامین کالاهای مجاز و مدیریت کامل لجستیک صادرات در مرزها.</p>
+        </div>
+
+        <!-- Column 2: Direct Contact -->
+        <div class="flex flex-col items-start md:items-start">
+           <h4 class="text-white font-bold mb-6 text-base w-full">ارتباط مستقیم</h4>
+           <ul class="space-y-5 font-light w-full">
+            <li class="flex items-center gap-3 text-left justify-end w-full" dir="ltr">
+              <span class="text-slate-400 font-sans tracking-wider">{callNumber}</span>
+              <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            </li>
+            <li class="flex items-center gap-3 text-left justify-end w-full" dir="ltr">
+              <span class="text-slate-400 font-sans tracking-wider">{whatsappNumber}</span>
+              <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+            </li>
+            <li class="flex items-center gap-3 text-left justify-end w-full" dir="ltr">
+              <span class="text-slate-400 font-sans">{emailAddress}</span>
+              <svg class="w-5 h-5 text-emerald-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Column 3: Headquarters -->
+        <div class="flex flex-col items-start md:items-start">
+          <h4 class="text-white font-bold mb-6 text-base w-full">دفتر مرکزی</h4>
+          <ul class="space-y-4 font-light w-full">
+            <li class="flex items-start justify-end gap-3 text-slate-400 w-full" dir="ltr">
+              <span class="leading-loose text-right" dir="rtl">
+                ایران، زاهدان<br/>
+                بلوار آزادی، پاساژ برادران<br/>
+                طبقه دوم، پلاک ۷۸
+              </span>
+              <svg class="w-6 h-6 text-slate-500 shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-600">
+        <p>تمامی حقوق برای بازرگانی سعیدیان محفوظ است. © ۲۰۲۶</p>
+      </div>
+    </footer>
 
     <script>
       // 1. Mobile Menu Toggle
@@ -149,7 +349,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
         
         // Print User Message
         chatMessages.innerHTML += `
-          <div class="bg-emerald-600 text-white p-3.5 rounded-2xl rounded-tr-sm self-end shadow-sm max-w-[85%] leading-relaxed">
+          <div class="bg-emerald-600 text-white p-3.5 rounded-2xl rounded-tr-sm self-end shadow-sm max-w-[85%] leading-relaxed text-right" dir="rtl">
             ${text}
           </div>
         `;
@@ -181,7 +381,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
           if(data.reply) {
             // Print Gemini Response
             chatMessages.innerHTML += `
-              <div class="bg-white border border-slate-200 p-3.5 rounded-2xl rounded-tl-sm self-start text-slate-700 shadow-sm max-w-[85%] leading-relaxed whitespace-pre-wrap">${data.reply}</div>
+              <div class="bg-white border border-slate-200 p-3.5 rounded-2xl rounded-tl-sm self-start text-slate-700 shadow-sm max-w-[85%] leading-relaxed whitespace-pre-wrap text-right" dir="rtl">${data.reply}</div>
             `;
           } else {
             throw new Error('No reply');
@@ -190,8 +390,8 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
           const loadingEl = document.getElementById(loadingId);
           if(loadingEl) loadingEl.remove();
           chatMessages.innerHTML += `
-            <div class="bg-red-50 text-red-600 border border-red-100 p-3.5 rounded-2xl rounded-tl-sm self-start shadow-sm max-w-[85%] text-xs">
-              Network error. Please contact the desk via WhatsApp.
+            <div class="bg-red-50 text-red-600 border border-red-100 p-3.5 rounded-2xl rounded-tl-sm self-start shadow-sm max-w-[85%] text-xs text-right" dir="rtl">
+              خطای شبکه رخ داده است. لطفاً از طریق واتس‌اپ با ما تماس بگیرید.
             </div>
           `;
         }
