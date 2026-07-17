@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main # or master, depending on what your Github repo uses
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+site_url: https://saeidiantrading.com # Change this to your Netlify URL later
+display_url: https://saeidiantrading.com
+
+collections:
+  - name: "blog"
+    label: "Trade Guides (Blog)"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Language", name: "language", widget: "select", options: ["en", "fa", "ur"], default: "en" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "SEO Description", name: "description", widget: "text" }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Content Body", name: "body", widget: "markdown" }
