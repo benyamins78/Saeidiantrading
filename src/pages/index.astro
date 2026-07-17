@@ -26,9 +26,45 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
   </head>
   <body class="bg-slate-50 text-slate-900 selection:bg-emerald-500 selection:text-white antialiased relative">
 
-    {/* FLOATING ACTION BUTTONS (WHATSAPP & AI CHATBOT) */}
+    {/* AI CHATBOT WINDOW (Hidden by default) */}
+    <div id="chat-window" class="fixed bottom-28 end-6 z-50 w-[90vw] sm:w-96 bg-white rounded-2xl shadow-2xl border border-slate-200 hidden flex-col overflow-hidden transition-all duration-300 transform origin-bottom-right">
+      <!-- Header -->
+      <div class="bg-slate-900 text-white p-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <div>
+            <h3 class="font-bold text-sm tracking-wide">Operations AI</h3>
+            <p class="text-[10px] text-slate-400">Saeidian Trading Desk</p>
+          </div>
+        </div>
+        <button id="close-chat" class="text-slate-400 hover:text-white transition" aria-label="Close Chat">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+      </div>
+      
+      <!-- Chat Messages Area -->
+      <div id="chat-messages" class="h-80 p-4 overflow-y-auto bg-slate-50 flex flex-col gap-4 text-sm font-medium scroll-smooth">
+        <!-- Default Greeting -->
+        <div class="bg-white border border-slate-200 p-3.5 rounded-2xl rounded-tl-sm self-start text-slate-700 shadow-sm max-w-[85%] leading-relaxed">
+          Hello. I am the automated operations assistant. How can I help you with our cross-border logistics or commodity sourcing today?
+        </div>
+      </div>
+      
+      <!-- Input Area -->
+      <div class="p-3 bg-white border-t border-slate-100 flex gap-2 items-center">
+        <input type="text" id="chat-input" class="w-full bg-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-emerald-500/50 text-sm font-medium transition-all" placeholder="Ask about logistics..." autocomplete="off" />
+        <button id="send-chat" class="bg-emerald-600 text-white p-3 rounded-xl hover:bg-emerald-500 transition-all shadow-md shadow-emerald-900/10 shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+        </button>
+      </div>
+    </div>
+
+    {/* FLOATING ACTION BUTTONS */}
     <div class="fixed bottom-6 end-6 z-50 flex flex-col gap-3">
-      <!-- Standard Support / Chat Icon -->
+      <!-- AI Chat Toggle Button -->
       <button id="ai-chat-toggle" class="bg-slate-900 text-white p-4 rounded-full shadow-xl shadow-slate-900/20 hover:scale-110 hover:bg-slate-800 transition-all duration-300 group" aria-label="Open Chat Support">
         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
         <span class="absolute end-full me-4 top-1/2 -translate-y-1/2 bg-slate-900 text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
@@ -48,43 +84,42 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
     {/* GLOBAL STICKY HEADER */}
     <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-slate-200/80 navbar">
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <!-- Logo -->
         <a href="/" class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-2">
           <span class="w-3 h-6 bg-gradient-to-b from-emerald-400 to-emerald-600 rounded-xs inline-block"></span>
           SAEIDIAN <span class="text-emerald-600 font-medium">TRADING</span>
         </a>
         
+        <!-- Desktop Links -->
         <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
           <a href="#about" class="hover:text-emerald-600 transition">Capabilities</a>
           <a href="#commodities" class="hover:text-emerald-600 transition">Commodities</a>
         </div>
 
-        <div class="flex items-center gap-4">
+        <!-- Action Area (Always visible Language Switcher + Hamburger) -->
+        <div class="flex items-center gap-3 sm:gap-4">
           <a href={`tel:${callNumber}`} class="hidden lg:flex items-center gap-2 text-slate-900 bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 px-4 py-2 rounded-lg text-sm font-bold border border-slate-200 transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
             {callNumber}
           </a>
 
-          <!-- DYNAMIC Language Selector Toggle -->
-          <div class="hidden sm:flex items-center gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200">
-            <a href="/" class={`px-3 py-1.5 text-xs font-bold rounded-md transition ${currentPath === '/' || currentPath === '' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>EN</a>
-            <a href="/fa/" class={`px-3 py-1.5 text-xs font-bold rounded-md transition ${currentPath.startsWith('/fa') ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>فا</a>
-            <a href="/ur/" class={`px-3 py-1.5 text-xs font-bold rounded-md transition ${currentPath.startsWith('/ur') ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>اردو</a>
+          <!-- DYNAMIC Language Selector Toggle (Always Flex/Visible) -->
+          <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200">
+            <a href="/" class={`px-2 sm:px-3 py-1.5 text-xs font-bold rounded-md transition ${currentPath === '/' || currentPath === '' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>EN</a>
+            <a href="/fa/" class={`px-2 sm:px-3 py-1.5 text-xs font-bold rounded-md transition ${currentPath.startsWith('/fa') ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>فا</a>
+            <a href="/ur/" class={`px-2 sm:px-3 py-1.5 text-xs font-bold rounded-md transition ${currentPath.startsWith('/ur') ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>اردو</a>
           </div>
 
+          <!-- Mobile Hamburger -->
           <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-900 hover:text-emerald-600 transition" aria-label="Toggle Menu">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
           </button>
         </div>
       </div>
 
-      <!-- Mobile Menu -->
+      <!-- Mobile Menu Dropdown -->
       <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-4 shadow-lg absolute w-full">
-        <div class="flex items-center gap-2 pb-4 border-b border-slate-100">
-          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Region:</span>
-          <a href="/" class={`text-sm font-bold ${currentPath === '/' || currentPath === '' ? 'text-slate-900' : 'text-slate-500'}`}>EN</a><span class="text-slate-300">|</span>
-          <a href="/fa/" class={`text-sm font-bold ${currentPath.startsWith('/fa') ? 'text-slate-900' : 'text-slate-500'}`}>فا</a><span class="text-slate-300">|</span>
-          <a href="/ur/" class={`text-sm font-bold ${currentPath.startsWith('/ur') ? 'text-slate-900' : 'text-slate-500'}`}>اردو</a>
-        </div>
+        <!-- Language Switcher removed from here since it is now always in the header -->
         <a href="#about" class="block font-medium text-slate-600 hover:text-emerald-600 py-2">Capabilities</a>
         <a href="#commodities" class="block font-medium text-slate-600 hover:text-emerald-600 py-2">Commodities</a>
         <a href={`tel:${callNumber}`} class="block font-bold text-emerald-600 py-2 flex items-center gap-2">
@@ -277,20 +312,93 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
     </footer>
 
     <script>
-      // Mobile Menu Toggle
+      // 1. Mobile Menu Toggle
       const btn = document.getElementById('mobile-menu-btn');
       const menu = document.getElementById('mobile-menu');
       if (btn && menu) {
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
       }
 
-      // Placeholder for your Custom AI Chatbot integration
-      const aiBtn = document.getElementById('ai-chat-toggle');
-      if (aiBtn) {
-        aiBtn.addEventListener('click', () => {
-          alert('Chat Support module is ready to be connected to your script.');
-        });
-      }
+      // 2. AI Chatbot Logic
+      const aiToggle = document.getElementById('ai-chat-toggle');
+      const chatWindow = document.getElementById('chat-window');
+      const closeChat = document.getElementById('close-chat');
+      const chatMessages = document.getElementById('chat-messages');
+      const chatInput = document.getElementById('chat-input') as HTMLInputElement;
+      const sendChat = document.getElementById('send-chat');
+
+      // Open/Close Window
+      const toggleChat = () => {
+        chatWindow.classList.toggle('hidden');
+        chatWindow.classList.toggle('flex');
+        if(!chatWindow.classList.contains('hidden')) {
+          chatInput.focus();
+        }
+      };
+      aiToggle?.addEventListener('click', toggleChat);
+      closeChat?.addEventListener('click', toggleChat);
+
+      // Send Message to secure API
+      const sendMessage = async () => {
+        const text = chatInput.value.trim();
+        if (!text) return;
+        
+        chatInput.value = ''; // Clear input immediately
+        
+        // Print User Message
+        chatMessages.innerHTML += `
+          <div class="bg-emerald-600 text-white p-3.5 rounded-2xl rounded-tr-sm self-end shadow-sm max-w-[85%] leading-relaxed">
+            ${text}
+          </div>
+        `;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Print "Loading..." Animation
+        const loadingId = 'loading-' + Date.now();
+        chatMessages.innerHTML += `
+          <div id="${loadingId}" class="bg-white border border-slate-200 p-4 rounded-2xl rounded-tl-sm self-start shadow-sm flex gap-1.5 items-center">
+            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
+            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
+            <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
+          </div>
+        `;
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        try {
+          // Call your serverless function securely
+          const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: text })
+          });
+          
+          const data = await response.json();
+          document.getElementById(loadingId)?.remove(); // Remove loading dots
+
+          if(data.reply) {
+            // Print Gemini Response
+            chatMessages.innerHTML += `
+              <div class="bg-white border border-slate-200 p-3.5 rounded-2xl rounded-tl-sm self-start text-slate-700 shadow-sm max-w-[85%] leading-relaxed whitespace-pre-wrap">${data.reply}</div>
+            `;
+          } else {
+            throw new Error('No reply');
+          }
+        } catch (error) {
+          document.getElementById(loadingId)?.remove();
+          chatMessages.innerHTML += `
+            <div class="bg-red-50 text-red-600 border border-red-100 p-3.5 rounded-2xl rounded-tl-sm self-start shadow-sm max-w-[85%] text-xs">
+              Network error. Please contact the desk via WhatsApp.
+            </div>
+          `;
+        }
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      };
+
+      // Trigger send on click or Enter key
+      sendChat?.addEventListener('click', sendMessage);
+      chatInput?.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+      });
     </script>
   </body>
 </html>
