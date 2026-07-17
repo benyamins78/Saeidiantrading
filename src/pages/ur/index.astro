@@ -350,7 +350,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
         
         // Print User Message
         chatMessages.innerHTML += `
-          <div class="bg-emerald-600 text-white p-3.5 rounded-2xl rounded-tl-sm self-end shadow-sm max-w-[85%] leading-relaxed text-right" dir="rtl">
+          <div class="bg-emerald-600 text-white p-3.5 rounded-2xl rounded-tr-sm self-end shadow-sm max-w-[85%] leading-relaxed text-right" dir="rtl">
             ${text}
           </div>
         `;
@@ -359,7 +359,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
         // Print "Loading..." Animation
         const loadingId = 'loading-' + Date.now();
         chatMessages.innerHTML += `
-          <div id="${loadingId}" class="bg-white border border-slate-200 p-4 rounded-2xl rounded-tr-sm self-start shadow-sm flex gap-1.5 items-center flex-row-reverse">
+          <div id="${loadingId}" class="bg-white border border-slate-200 p-4 rounded-2xl rounded-tl-sm self-start shadow-sm flex gap-1.5 items-center">
             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce"></span>
             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 150ms"></span>
             <span class="w-1.5 h-1.5 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 300ms"></span>
@@ -382,7 +382,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
           if(data.reply) {
             // Print Gemini Response
             chatMessages.innerHTML += `
-              <div class="bg-white border border-slate-200 p-3.5 rounded-2xl rounded-tr-sm self-start text-slate-700 shadow-sm max-w-[85%] leading-relaxed whitespace-pre-wrap text-right" dir="rtl">${data.reply}</div>
+              <div class="bg-white border border-slate-200 p-3.5 rounded-2xl rounded-tl-sm self-start text-slate-700 shadow-sm max-w-[85%] leading-relaxed whitespace-pre-wrap text-right" dir="rtl">${data.reply}</div>
             `;
           } else {
             throw new Error('No reply');
@@ -391,8 +391,8 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
           const loadingEl = document.getElementById(loadingId);
           if(loadingEl) loadingEl.remove();
           chatMessages.innerHTML += `
-            <div class="bg-red-50 text-red-600 border border-red-100 p-3.5 rounded-2xl rounded-tr-sm self-start shadow-sm max-w-[85%] text-xs text-right" dir="rtl">
-              نیٹ ورک کی خرابی۔ براہ کرم واٹس ایپ کے ذریعے ڈیسک سے رابطہ کریں۔
+            <div class="bg-red-50 text-red-600 border border-red-100 p-3.5 rounded-2xl rounded-tl-sm self-start shadow-sm max-w-[85%] text-xs text-right" dir="rtl">
+              خطای شبکه رخ داده است. لطفاً از طریق واتس‌اپ با ما تماس بگیرید.
             </div>
           `;
         }
