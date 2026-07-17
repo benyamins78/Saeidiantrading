@@ -10,11 +10,11 @@ export default defineConfig({
 
   i18n: {
     locales: ['en', 'fa', 'ur'],
-    defaultLocale: 'en',
+    defaultLocale: 'fa', // Changed to Farsi
     routing: {
       prefixDefaultLocale: false
     }
-  },
+  }
 
   adapter: netlify()
 });

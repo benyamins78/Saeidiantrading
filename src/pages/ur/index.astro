@@ -101,8 +101,8 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
           </a>
 
           <div class="hidden sm:flex items-center gap-1 bg-slate-100 p-1 rounded-lg border border-slate-200 font-sans">
-            <a href="/" class={`px-3 py-1.5 text-xs font-bold rounded-md transition ${currentPath === '/' || currentPath === '' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>EN</a>
-            <a href="/fa/" class={`px-3 py-1.5 text-xs font-bold rounded-md transition ${currentPath.startsWith('/fa') ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>فا</a>
+            <a href="/en/" class={`px-3 py-1.5 text-xs font-bold rounded-md transition ${currentPath.startsWith('/en') ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>EN</a>
+            <a href="/" class={`px-3 py-1.5 text-xs font-bold rounded-md transition ${currentPath === '/' || currentPath === '' ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>فا</a>
             <a href="/ur/" class={`px-3 py-1.5 text-xs font-bold rounded-md transition ${currentPath.startsWith('/ur') ? 'bg-white text-slate-900 shadow-xs' : 'text-slate-500 hover:text-slate-900'}`}>اردو</a>
           </div>
 
@@ -116,8 +116,8 @@ const whatsappLink = `https://wa.me/${whatsappNumber.replace('+', '')}`;
       <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-4 shadow-lg absolute w-full">
         <div class="flex items-center gap-2 pb-4 border-b border-slate-100 font-sans">
           <span class="text-xs font-bold text-slate-400">زبان:</span>
-          <a href="/" class={`text-sm font-bold ${currentPath === '/' || currentPath === '' ? 'text-slate-900' : 'text-slate-500'}`}>EN</a><span class="text-slate-300">|</span>
-          <a href="/fa/" class={`text-sm font-bold ${currentPath.startsWith('/fa') ? 'text-slate-900' : 'text-slate-500'}`}>فا</a><span class="text-slate-300">|</span>
+          <a href="/en/" class={`text-sm font-bold ${currentPath.startsWith('/en') ? 'text-slate-900' : 'text-slate-500'}`}>EN</a><span class="text-slate-300">|</span>
+          <a href="/" class={`text-sm font-bold ${currentPath === '/' || currentPath === '' ? 'text-slate-900' : 'text-slate-500'}`}>فا</a><span class="text-slate-300">|</span>
           <a href="/ur/" class={`text-sm font-bold ${currentPath.startsWith('/ur') ? 'text-slate-900' : 'text-slate-500'}`}>اردو</a>
         </div>
         <a href="#about" class="block font-medium text-slate-600 hover:text-emerald-600 py-2">ہماری خدمات</a>
